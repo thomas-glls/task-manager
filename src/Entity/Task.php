@@ -17,7 +17,6 @@ class Task
     #[ORM\Column(length: 255)]
     private ?string $title = null;
 
-    // Enum interne pour les statuts
     #[ORM\Column(type: "string", enumType: self::class . '::TaskStatusEnum')]
     private TaskStatusEnum $status;
 
@@ -49,13 +48,11 @@ class Task
         return $this;
     }
 
-    // Getter pour le statut (enum)
     public function getStatus(): TaskStatusEnum
     {
         return $this->status;
     }
 
-    // Setter pour le statut (enum)
     public function setStatus(TaskStatusEnum $status): static
     {
         $this->status = $status;
@@ -84,7 +81,6 @@ class Task
         return $this;
     }
 
-    // Définition de l'énumération en interne dans la classe
     enum TaskStatusEnum: string
     {
         case EN_COURS = 'en_cours';
